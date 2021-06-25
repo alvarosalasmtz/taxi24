@@ -5,7 +5,6 @@ import com.api.taxi24.model.entity.Driver;
 import com.api.taxi24.model.enums.DriverStatusEnum;
 import com.api.taxi24.repository.DriverRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.geo.GeoJsonPoint;
 import org.springframework.data.mongodb.core.index.GeoSpatialIndexType;
@@ -25,9 +24,6 @@ public class DriverServiceImpl implements DriverService {
     private DriverRepository driverRepository;
     @Autowired
     private MongoTemplate template;
-
-    @Value("${geo.radio}")
-    private double radioConstant;
 
     @PostConstruct
     private void init() {
@@ -57,8 +53,9 @@ public class DriverServiceImpl implements DriverService {
     @Override
     public List<Driver> findAllByLocationAndRadioAndStatus(
             double latitude, double longitude, int radio, DriverStatusEnum status) {
+        double radioCons = 6370.5877859;
         return driverRepository.findDriversByLatitudeAndLongitudeAndRadioAndStatus(
-                longitude, latitude, radio / radioConstant, status);
+                longitude, latitude, radio / radioCons, status);
     }
 
     @Override
