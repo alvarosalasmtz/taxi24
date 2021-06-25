@@ -1,0 +1,9 @@
+spring:
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: api-taxi24
+geo:
+  radio: 6370.5877859
+  distance: 3.0

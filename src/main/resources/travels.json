@@ -1,0 +1,16 @@
+{
+  "list": [
+    {
+      "driverId": "driverId",
+      "passengerId": "passengerId",
+      "latitude": 19.408478,
+      "longitude": -99.176558
+    },
+    {
+      "driverId": "driverId",
+      "passengerId": "passengerId",
+      "latitude": 19.410259,
+      "longitude": -99.177417
+    }
+  ]
+}
